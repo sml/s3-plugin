@@ -95,7 +95,7 @@ public class S3Profile {
                     bucket = bucket.substring(0, bucketSeperaterIndex);
                 }
 
-                destKey = destKey + file.getRemote().substring(i);
+                destKey = destKey + file.getRemote().substring(i).replaceFirst("/", "");
 
                 ObjectMetadata metadata = new ObjectMetadata();
                 metadata.setContentType(Mimetypes.getInstance().getMimetype(file.getName()));
